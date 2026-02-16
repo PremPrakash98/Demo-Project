@@ -4,95 +4,222 @@
   <meta charset="UTF-8">
   <title>Actors Casting Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
 </head>
 
-<body class="bg-gray-100 font-sans">
+<body class="bg-black text-white">
 
 <!-- Navbar -->
-<nav class="bg-black text-white p-4 flex justify-between items-center">
+<nav class="fixed w-full bg-black/70 backdrop-blur-md z-50 p-4 flex justify-between items-center">
   <h1 class="text-xl font-bold">Actors Casting</h1>
-  <a href="#hire" class="bg-white text-black px-4 py-2 rounded">
-    Post Casting
-  </a>
+  <div class="space-x-4">
+    <a href="#pricing" class="hover:text-purple-400">Pricing</a>
+    <button onclick="openLogin()" class="bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2 rounded-full hover:scale-105 transition">
+      Login
+    </button>
+  </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="bg-white py-20 text-center">
-  <h2 class="text-4xl font-bold mb-4">
-    Hire Professional Actors For Your Project
-  </h2>
-  <p class="text-gray-600 mb-6">
-    Acting • Singing • Advertisement • Web Series • Short Film
-  </p>
-  <a href="#hire" class="bg-black text-white px-6 py-3 rounded-lg">
-    Hire Now
-  </a>
+<!-- Hero -->
+<section class="h-screen flex items-center justify-center relative">
+
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4"
+         class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/70"></div>
+  </div>
+
+  <div class="relative text-center px-6" data-aos="fade-up">
+    <h2 class="text-5xl md:text-6xl font-bold mb-6">
+      Hire Exceptional Talent
+    </h2>
+    <p class="text-gray-300 mb-8">
+      Acting • Singing • Ads • Web Series • Short Films
+    </p>
+    <a href="#hire"
+       class="bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 rounded-full hover:scale-105 transition">
+      Get Started
+    </a>
+  </div>
 </section>
 
-<!-- Categories -->
-<section class="py-16">
-  <h3 class="text-2xl font-bold text-center mb-10">
-    Talent Categories
+<!-- Animated Stats -->
+<section class="py-20 bg-gray-900 text-center">
+
+  <h3 class="text-3xl font-bold mb-12" data-aos="fade-up">
+    Platform Growth
   </h3>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-    <div class="bg-white p-6 rounded shadow text-center">
-      <h4 class="text-xl font-semibold">🎭 Acting</h4>
-      <p class="text-gray-600 mt-2">Movies, Theatre, OTT</p>
+    <div data-aos="zoom-in">
+      <h2 class="text-5xl font-bold text-purple-400 counter" data-target="1200">0</h2>
+      <p class="text-gray-400">Actors Registered</p>
     </div>
 
-    <div class="bg-white p-6 rounded shadow text-center">
-      <h4 class="text-xl font-semibold">🎤 Singing</h4>
-      <p class="text-gray-600 mt-2">Playback, Concerts</p>
+    <div data-aos="zoom-in" data-aos-delay="200">
+      <h2 class="text-5xl font-bold text-purple-400 counter" data-target="350">0</h2>
+      <p class="text-gray-400">Casting Directors</p>
     </div>
 
-    <div class="bg-white p-6 rounded shadow text-center">
-      <h4 class="text-xl font-semibold">📢 Advertisement</h4>
-      <p class="text-gray-600 mt-2">Brand Campaigns</p>
-    </div>
-
-    <div class="bg-white p-6 rounded shadow text-center">
-      <h4 class="text-xl font-semibold">📺 Web Series</h4>
-      <p class="text-gray-600 mt-2">OTT Platforms</p>
-    </div>
-
-    <div class="bg-white p-6 rounded shadow text-center">
-      <h4 class="text-xl font-semibold">🎬 Short Film</h4>
-      <p class="text-gray-600 mt-2">Independent Projects</p>
+    <div data-aos="zoom-in" data-aos-delay="400">
+      <h2 class="text-5xl font-bold text-purple-400 counter" data-target="800">0</h2>
+      <p class="text-gray-400">Projects Posted</p>
     </div>
 
   </div>
 </section>
 
-<!-- Hiring Section -->
-<section id="hire" class="py-20 flex justify-center">
-  <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-xl text-center">
+<!-- Testimonials -->
+<section class="py-20 bg-black">
 
-    <h3 class="text-2xl font-bold mb-6">
-      Post Casting Requirement
-    </h3>
+  <h3 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+    What Our Users Say
+  </h3>
 
-    <p class="mb-6 text-gray-600">
-      Click below to submit your casting requirement.
-    </p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10">
 
-    <a 
-      href="https://forms.gle/RX2vHigTRf29uAqq6"
-      target="_blank"
-      class="bg-black text-white px-6 py-3 rounded-lg"
-    >
-      Open Casting Form
-    </a>
+    <div class="bg-white/10 p-8 rounded-xl" data-aos="fade-right">
+      <p class="text-gray-300 mb-4">
+        “We found amazing talent within days. This platform is a game changer.”
+      </p>
+      <h4 class="font-semibold text-purple-400">— Casting Director, Mumbai</h4>
+    </div>
+
+    <div class="bg-white/10 p-8 rounded-xl" data-aos="fade-up">
+      <p class="text-gray-300 mb-4">
+        “Finally a place dedicated to actors and creative professionals.”
+      </p>
+      <h4 class="font-semibold text-purple-400">— Producer, Delhi</h4>
+    </div>
+
+    <div class="bg-white/10 p-8 rounded-xl" data-aos="fade-left">
+      <p class="text-gray-300 mb-4">
+        “Professional interface and seamless experience.”
+      </p>
+      <h4 class="font-semibold text-purple-400">— OTT Creator</h4>
+    </div>
 
   </div>
 </section>
+
+<!-- Pricing -->
+<section id="pricing" class="py-20 bg-gradient-to-b from-black to-gray-900 text-center">
+
+  <h3 class="text-3xl font-bold mb-12" data-aos="fade-up">
+    Pricing Plans
+  </h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10">
+
+    <div class="bg-white/10 p-8 rounded-xl" data-aos="flip-left">
+      <h4 class="text-xl font-bold mb-4">Basic</h4>
+      <p class="text-4xl font-bold mb-4">Free</p>
+      <p class="text-gray-400 mb-6">Post limited casting calls</p>
+      <button class="bg-purple-500 px-6 py-2 rounded-full">Select</button>
+    </div>
+
+    <div class="bg-purple-600 p-8 rounded-xl" data-aos="flip-up">
+      <h4 class="text-xl font-bold mb-4">Pro</h4>
+      <p class="text-4xl font-bold mb-4">₹999/mo</p>
+      <p class="mb-6">Unlimited casting posts</p>
+      <button class="bg-black px-6 py-2 rounded-full">Select</button>
+    </div>
+
+    <div class="bg-white/10 p-8 rounded-xl" data-aos="flip-right">
+      <h4 class="text-xl font-bold mb-4">Enterprise</h4>
+      <p class="text-4xl font-bold mb-4">Custom</p>
+      <p class="text-gray-400 mb-6">Large studios & agencies</p>
+      <button class="bg-purple-500 px-6 py-2 rounded-full">Contact</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Hire Section -->
+<section id="hire" class="py-24 bg-black text-center">
+
+  <h3 class="text-4xl font-bold mb-6">Post Your Casting Requirement</h3>
+
+  <a href="https://forms.gle/4HvGTsPufyVbUULG9"
+     target="_blank"
+     class="bg-gradient-to-r from-purple-500 to-pink-500 px-10 py-4 rounded-full hover:scale-105 transition">
+    Open Casting Form
+  </a>
+
+</section>
+
+<!-- Login Modal -->
+<div id="loginModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center">
+
+  <div class="bg-gray-900 p-8 rounded-xl w-96">
+    <h3 class="text-2xl font-bold mb-6">Login</h3>
+
+    <input type="email" placeholder="Email"
+           class="w-full p-3 mb-4 bg-gray-800 rounded">
+
+    <input type="password" placeholder="Password"
+           class="w-full p-3 mb-4 bg-gray-800 rounded">
+
+    <button class="w-full bg-purple-500 py-3 rounded mb-4">
+      Login
+    </button>
+
+    <button onclick="closeLogin()" class="text-gray-400 text-sm">
+      Close
+    </button>
+  </div>
+</div>
 
 <!-- Footer -->
-<footer class="bg-black text-white text-center p-6">
+<footer class="bg-black text-gray-500 text-center p-6 border-t border-gray-800">
   © 2026 Actors Casting Platform
 </footer>
+
+<script>
+  AOS.init();
+
+  function openLogin() {
+    document.getElementById('loginModal').classList.remove('hidden');
+    document.getElementById('loginModal').classList.add('flex');
+  }
+
+  function closeLogin() {
+    document.getElementById('loginModal').classList.add('hidden');
+  }
+
+  // Animated Counter
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    counter.innerText = '0';
+    const updateCounter = () => {
+      const target = +counter.getAttribute('data-target');
+      const c = +counter.innerText;
+      const increment = target / 200;
+      if (c < target) {
+        counter.innerText = Math.ceil(c + increment);
+        setTimeout(updateCounter, 10);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCounter();
+  });
+</script>
 
 </body>
 </html>
