@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Actors Casting Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+<nav class="bg-black text-white p-4 text-center text-xl font-bold">
+  Actors Casting Platform
+</nav>
+
+<section class="text-center mt-20">
+  <h1 class="text-4xl font-bold mb-6">
+    Hire Actors for Acting, Singing, Ads & Web Series
+  </h1>
+
+  <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK"
+     class="bg-black text-white px-6 py-3 rounded-lg">
+     Post Casting Requirement
+  </a>
+</section>
+
+</body>
+</html>
+https://forms.gle/j8t5VNvGBihRuUwG9
