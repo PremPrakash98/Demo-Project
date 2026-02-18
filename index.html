@@ -8,7 +8,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
@@ -25,6 +24,28 @@
 
     .gradient-text { background: linear-gradient(to right, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .scroll-mt { scroll-margin-top: 80px; }
+    
+    /* Custom Input Style */
+    .custom-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px;
+      border-radius: 8px;
+      color: white;
+      outline: none;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+    .custom-input:focus {
+      border-color: #a855f7;
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+    }
+    .custom-input::placeholder { color: #666; }
+    
+    /* Hide scrollbar for modal */
+    #castingModal::-webkit-scrollbar { display: none; }
   </style>
 </head>
 
@@ -54,12 +75,9 @@
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0 z-0">
-    
     <img src="https://i.postimg.cc/FK1V32z8/pexels-ron-lach-8088378.jpg" 
       class="w-full h-full object-cover brightness-110 contrast-110 saturate-110">
-
     <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/90"></div>
-
   </div>
 
   <div class="relative z-10 text-center px-6 max-w-4xl" data-aos="zoom-out" data-aos-duration="1000">
@@ -73,7 +91,9 @@
       Streamline your production with the fastest-growing network for Actors, Singers, and Creative Professionals.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#hire" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-gray-200 transition">Hire Talent</a>
+      <button onclick="openCastingForm()" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-gray-200 transition shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+        Post Casting Requirement
+      </button>
       <button class="glass px-10 py-4 rounded-full font-bold hover:bg-white/10 transition">Join as Actor</button>
     </div>
   </div>
@@ -103,26 +123,20 @@
     <h3 class="text-4xl font-bold mb-4">Transparent Pricing</h3>
     <p class="text-gray-500">Choose the plan that fits your production scale.</p>
   </div>
-
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
     <div class="glass p-10 rounded-3xl transition-transform hover:-translate-y-2" data-aos="fade-right">
       <h4 class="text-xl font-bold mb-2">Starter</h4>
-      <div class="flex items-baseline mb-6">
-        <span class="text-4xl font-bold">Free</span>
-      </div>
+      <div class="flex items-baseline mb-6"><span class="text-4xl font-bold">Free</span></div>
       <ul class="text-left space-y-4 mb-8 text-gray-400">
         <li class="flex items-center">✓ 3 Casting Posts/mo</li>
         <li class="flex items-center">✓ Basic Search Filters</li>
       </ul>
       <button class="w-full py-3 rounded-xl border border-white/20 hover:bg-white/10 transition">Get Started</button>
     </div>
-
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/50 p-10 rounded-3xl transition-transform hover:-translate-y-2 relative" data-aos="fade-up">
       <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-500 text-xs font-bold px-4 py-1 rounded-full uppercase">Most Popular</div>
       <h4 class="text-xl font-bold mb-2">Production Pro</h4>
-      <div class="flex items-baseline mb-6">
-        <span class="text-4xl font-bold">₹999</span><span class="text-gray-400">/mo</span>
-      </div>
+      <div class="flex items-baseline mb-6"><span class="text-4xl font-bold">₹999</span><span class="text-gray-400">/mo</span></div>
       <ul class="text-left space-y-4 mb-8">
         <li class="flex items-center">✓ Unlimited Posts</li>
         <li class="flex items-center">✓ Video Audition Storage</li>
@@ -130,12 +144,9 @@
       </ul>
       <button class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 font-bold hover:opacity-90 transition">Go Pro</button>
     </div>
-
     <div class="glass p-10 rounded-3xl transition-transform hover:-translate-y-2" data-aos="fade-left">
       <h4 class="text-xl font-bold mb-2">Studio</h4>
-      <div class="flex items-baseline mb-6">
-        <span class="text-4xl font-bold">Custom</span>
-      </div>
+      <div class="flex items-baseline mb-6"><span class="text-4xl font-bold">Custom</span></div>
       <ul class="text-left space-y-4 mb-8 text-gray-400">
         <li class="flex items-center">✓ Dedicated Manager</li>
         <li class="flex items-center">✓ API Access</li>
@@ -145,47 +156,127 @@
   </div>
 </section>
 
-<section id="hire" class="py-24 bg-black border-t border-white/5">
-  <div class="max-w-4xl mx-auto text-center px-6">
-    <div class="glass p-12 rounded-[3rem]" data-aos="zoom-in">
-      <h3 class="text-4xl font-bold mb-6">Ready to find your lead?</h3>
-      <p class="text-gray-400 mb-10">Submit your requirements and let the talent come to you.</p>
-      <a href="https://forms.gle/4HvGTsPufyVbUULG9" target="_blank" class="inline-block bg-white text-black px-12 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl">
-        Post Casting Requirement
-      </a>
+<footer class="py-12 bg-black text-center border-t border-white/5">
+  <p class="text-gray-600 text-sm">© 2026 ACTORS CASTING PLATFORM. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<div id="castingModal" class="fixed inset-0 bg-black/95 z-[100] hidden overflow-y-auto backdrop-blur-sm">
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-3xl relative mt-10 mb-10" data-aos="zoom-in">
+      
+      <button onclick="closeCastingForm()" class="absolute -top-12 right-0 text-gray-400 hover:text-white text-lg flex items-center gap-2 transition">
+        <span class="uppercase tracking-widest text-xs font-bold">Close</span> ✕
+      </button>
+
+      <div class="text-center mb-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-2">New Casting Call</h2>
+        <p class="text-gray-400 text-sm">Your request will be sent securely to our casting database.</p>
+      </div>
+
+      <script>var submitted=false;</script>
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+              onload="if(submitted) {window.location='#'; closeCastingForm(); alert('Success! Your casting call has been posted.');}"></iframe>
+      
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSe3_x6T2XLZgDAooQ_CMTeyzwdMBARkgxqcf8xnESRFCNjCvg/formResponse" 
+            method="post" target="hidden_iframe" class="glass p-8 md:p-10 rounded-3xl space-y-5"
+            onsubmit="submitted=true;">
+        
+        <div>
+          <label class="block text-[10px] uppercase font-bold text-purple-400 mb-2 tracking-widest">Project Title</label>
+          <input type="text" name="entry.1584854645" placeholder="e.g. The Last Summer" required class="custom-input">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Contact Email</label>
+            <input type="email" name="entry.900812277" placeholder="casting@studio.com" required class="custom-input">
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Shoot Location</label>
+            <input type="text" name="entry.1955425470" placeholder="e.g. Mumbai, Delhi" class="custom-input">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div>
+            <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Role Type</label>
+            <select name="entry.110339741" class="custom-input bg-black">
+              <option value="Acting Role">Acting Role</option>
+              <option value="Voice Over">Voice Over</option>
+              <option value="Model">Model</option>
+              <option value="Background">Background</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Gender</label>
+            <select name="entry.525502281" class="custom-input bg-black">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Any">Any</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Age Range</label>
+            <input type="text" name="entry.1703320986" placeholder="e.g. 20-25" class="custom-input">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Character Description</label>
+          <textarea name="entry.1173751266" rows="4" placeholder="Describe requirements, look, and mood..." required class="custom-input"></textarea>
+        </div>
+
+        <div>
+            <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Budget / Pay</label>
+            <input type="text" name="entry.622587175" placeholder="e.g. ₹10,000 / day" class="custom-input">
+        </div>
+
+        <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all active:scale-95 mt-4">
+          Submit Casting Call
+        </button>
+
+      </form>
     </div>
   </div>
-</section>
+</div>
 
 <div id="loginModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[100] backdrop-blur-sm p-4">
   <div class="glass p-10 rounded-3xl w-full max-w-md relative" data-aos="zoom-in">
     <button onclick="closeLogin()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl">&times;</button>
     <h3 class="text-3xl font-bold mb-8">Welcome Back</h3>
     <div class="space-y-4">
-      <input type="email" placeholder="Email Address" class="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500 transition">
-      <input type="password" placeholder="Password" class="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500 transition">
+      <input type="email" placeholder="Email Address" class="custom-input">
+      <input type="password" placeholder="Password" class="custom-input">
       <button class="w-full bg-gradient-to-r from-purple-600 to-pink-600 py-4 rounded-xl font-bold mt-4 shadow-lg active:scale-95 transition">Sign In</button>
     </div>
   </div>
 </div>
 
-<footer class="py-12 bg-black text-center border-t border-white/5">
-  <p class="text-gray-600 text-sm">© 2026 ACTORS CASTING PLATFORM. ALL RIGHTS RESERVED.</p>
-</footer>
-
 <script>
   AOS.init({ duration: 800, once: true });
 
-  function openLogin() {
-    const modal = document.getElementById('loginModal');
+  function openCastingForm() {
+    const modal = document.getElementById('castingModal');
     modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    modal.classList.add('block');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCastingForm() {
+    const modal = document.getElementById('castingModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('block');
+    document.body.style.overflow = 'auto';
+  }
+
+  function openLogin() {
+    document.getElementById('loginModal').classList.remove('hidden');
+    document.getElementById('loginModal').classList.add('flex');
     document.body.style.overflow = 'hidden';
   }
 
   function closeLogin() {
-    const modal = document.getElementById('loginModal');
-    modal.classList.add('hidden');
+    document.getElementById('loginModal').classList.add('hidden');
     document.body.style.overflow = 'auto';
   }
 
@@ -196,7 +287,6 @@
         const target = +counter.getAttribute('data-target');
         let count = 0;
         const speed = target / 100;
-
         const updateCount = () => {
           if (count < target) {
             count += speed;
@@ -211,11 +301,10 @@
       }
     });
   }, { threshold: 0.5 });
-
   document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
 
   function toggleMobileMenu() {
-    alert("Mobile menu clicked! You can implement a sliding sidebar here.");
+    alert("Mobile menu clicked!");
   }
 </script>
 
