@@ -2,225 +2,222 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Actors Casting Platform</title>
+  <title>Actors Casting | Find Your Next Star</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Poppins', sans-serif; }
+    
+    /* Glassmorphism Preserved */
+    .glass { 
+      background: rgba(255, 255, 255, 0.04); 
+      backdrop-filter: blur(4px); 
+      border: 1px solid rgba(255, 255, 255, 0.08); 
+    }
+
+    .gradient-text { background: linear-gradient(to right, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .scroll-mt { scroll-margin-top: 80px; }
   </style>
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-black text-white overflow-x-hidden">
 
-<!-- Navbar -->
-<nav class="fixed w-full bg-black/70 backdrop-blur-md z-50 p-4 flex justify-between items-center">
-  <h1 class="text-xl font-bold">Actors Casting</h1>
-  <div class="space-x-4">
-    <a href="#pricing" class="hover:text-purple-400">Pricing</a>
-    <button onclick="openLogin()" class="bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2 rounded-full hover:scale-105 transition">
-      Login
+<nav class="fixed w-full bg-black/80 backdrop-blur-lg z-50 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold tracking-tighter cursor-pointer" onclick="window.scrollTo(0,0)">
+      ACTORS<span class="text-purple-500">CASTING</span>
+    </h1>
+    
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="#growth" class="hover:text-purple-400 transition">Growth</a>
+      <a href="#pricing" class="hover:text-purple-400 transition">Pricing</a>
+      <button onclick="openLogin()" class="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-2 rounded-full font-medium hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all active:scale-95">
+        Login
+      </button>
+    </div>
+
+    <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
     </button>
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="h-screen flex items-center justify-center relative">
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    
+    <img src="https://i.postimg.cc/FK1V32z8/pexels-ron-lach-8088378.jpg" 
+      class="w-full h-full object-cover brightness-110 contrast-110 saturate-110">
 
-  <div class="absolute inset-0">
-    <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4"
-         class="w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/90"></div>
+
   </div>
 
-  <div class="relative text-center px-6" data-aos="fade-up">
-    <h2 class="text-5xl md:text-6xl font-bold mb-6">
-      Hire Exceptional Talent
+  <div class="relative z-10 text-center px-6 max-w-4xl" data-aos="zoom-out" data-aos-duration="1000">
+    <span class="px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-sm mb-6 inline-block">
+      The #1 Talent Discovery Hub
+    </span>
+    <h2 class="text-6xl md:text-8xl font-extrabold mb-6 leading-tight">
+      Direct Access to <span class="gradient-text">Elite Talent.</span>
     </h2>
-    <p class="text-gray-300 mb-8">
-      Acting • Singing • Ads • Web Series • Short Films
+    <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+      Streamline your production with the fastest-growing network for Actors, Singers, and Creative Professionals.
     </p>
-    <a href="#hire"
-       class="bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 rounded-full hover:scale-105 transition">
-      Get Started
-    </a>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#hire" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-gray-200 transition">Hire Talent</a>
+      <button class="glass px-10 py-4 rounded-full font-bold hover:bg-white/10 transition">Join as Actor</button>
+    </div>
   </div>
 </section>
 
-<!-- Animated Stats -->
-<section class="py-20 bg-gray-900 text-center">
-
-  <h3 class="text-3xl font-bold mb-12" data-aos="fade-up">
-    Platform Growth
-  </h3>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-    <div data-aos="zoom-in">
-      <h2 class="text-5xl font-bold text-purple-400 counter" data-target="1200">0</h2>
-      <p class="text-gray-400">Actors Registered</p>
+<section id="growth" class="py-24 bg-black scroll-mt">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+      <div class="p-8 rounded-2xl glass" data-aos="fade-up">
+        <h2 class="text-6xl font-bold gradient-text counter mb-2" data-target="1200">0</h2>
+        <p class="text-gray-400 uppercase tracking-widest text-sm font-semibold">Verified Actors</p>
+      </div>
+      <div class="p-8 rounded-2xl glass" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="text-6xl font-bold gradient-text counter mb-2" data-target="350">0</h2>
+        <p class="text-gray-400 uppercase tracking-widest text-sm font-semibold">Casting Directors</p>
+      </div>
+      <div class="p-8 rounded-2xl glass" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="text-6xl font-bold gradient-text counter mb-2" data-target="800">0</h2>
+        <p class="text-gray-400 uppercase tracking-widest text-sm font-semibold">Active Projects</p>
+      </div>
     </div>
-
-    <div data-aos="zoom-in" data-aos-delay="200">
-      <h2 class="text-5xl font-bold text-purple-400 counter" data-target="350">0</h2>
-      <p class="text-gray-400">Casting Directors</p>
-    </div>
-
-    <div data-aos="zoom-in" data-aos-delay="400">
-      <h2 class="text-5xl font-bold text-purple-400 counter" data-target="800">0</h2>
-      <p class="text-gray-400">Projects Posted</p>
-    </div>
-
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="py-20 bg-black">
+<section id="pricing" class="py-24 bg-zinc-950 scroll-mt">
+  <div class="text-center mb-16 px-6">
+    <h3 class="text-4xl font-bold mb-4">Transparent Pricing</h3>
+    <p class="text-gray-500">Choose the plan that fits your production scale.</p>
+  </div>
 
-  <h3 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
-    What Our Users Say
-  </h3>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10">
-
-    <div class="bg-white/10 p-8 rounded-xl" data-aos="fade-right">
-      <p class="text-gray-300 mb-4">
-        “We found amazing talent within days. This platform is a game changer.”
-      </p>
-      <h4 class="font-semibold text-purple-400">— Casting Director, Mumbai</h4>
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+    <div class="glass p-10 rounded-3xl transition-transform hover:-translate-y-2" data-aos="fade-right">
+      <h4 class="text-xl font-bold mb-2">Starter</h4>
+      <div class="flex items-baseline mb-6">
+        <span class="text-4xl font-bold">Free</span>
+      </div>
+      <ul class="text-left space-y-4 mb-8 text-gray-400">
+        <li class="flex items-center">✓ 3 Casting Posts/mo</li>
+        <li class="flex items-center">✓ Basic Search Filters</li>
+      </ul>
+      <button class="w-full py-3 rounded-xl border border-white/20 hover:bg-white/10 transition">Get Started</button>
     </div>
 
-    <div class="bg-white/10 p-8 rounded-xl" data-aos="fade-up">
-      <p class="text-gray-300 mb-4">
-        “Finally a place dedicated to actors and creative professionals.”
-      </p>
-      <h4 class="font-semibold text-purple-400">— Producer, Delhi</h4>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/50 p-10 rounded-3xl transition-transform hover:-translate-y-2 relative" data-aos="fade-up">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-500 text-xs font-bold px-4 py-1 rounded-full uppercase">Most Popular</div>
+      <h4 class="text-xl font-bold mb-2">Production Pro</h4>
+      <div class="flex items-baseline mb-6">
+        <span class="text-4xl font-bold">₹999</span><span class="text-gray-400">/mo</span>
+      </div>
+      <ul class="text-left space-y-4 mb-8">
+        <li class="flex items-center">✓ Unlimited Posts</li>
+        <li class="flex items-center">✓ Video Audition Storage</li>
+        <li class="flex items-center">✓ Priority Support</li>
+      </ul>
+      <button class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 font-bold hover:opacity-90 transition">Go Pro</button>
     </div>
 
-    <div class="bg-white/10 p-8 rounded-xl" data-aos="fade-left">
-      <p class="text-gray-300 mb-4">
-        “Professional interface and seamless experience.”
-      </p>
-      <h4 class="font-semibold text-purple-400">— OTT Creator</h4>
+    <div class="glass p-10 rounded-3xl transition-transform hover:-translate-y-2" data-aos="fade-left">
+      <h4 class="text-xl font-bold mb-2">Studio</h4>
+      <div class="flex items-baseline mb-6">
+        <span class="text-4xl font-bold">Custom</span>
+      </div>
+      <ul class="text-left space-y-4 mb-8 text-gray-400">
+        <li class="flex items-center">✓ Dedicated Manager</li>
+        <li class="flex items-center">✓ API Access</li>
+      </ul>
+      <button class="w-full py-3 rounded-xl border border-white/20 hover:bg-white/10 transition">Contact Sales</button>
     </div>
-
   </div>
 </section>
 
-<!-- Pricing -->
-<section id="pricing" class="py-20 bg-gradient-to-b from-black to-gray-900 text-center">
-
-  <h3 class="text-3xl font-bold mb-12" data-aos="fade-up">
-    Pricing Plans
-  </h3>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10">
-
-    <div class="bg-white/10 p-8 rounded-xl" data-aos="flip-left">
-      <h4 class="text-xl font-bold mb-4">Basic</h4>
-      <p class="text-4xl font-bold mb-4">Free</p>
-      <p class="text-gray-400 mb-6">Post limited casting calls</p>
-      <button class="bg-purple-500 px-6 py-2 rounded-full">Select</button>
+<section id="hire" class="py-24 bg-black border-t border-white/5">
+  <div class="max-w-4xl mx-auto text-center px-6">
+    <div class="glass p-12 rounded-[3rem]" data-aos="zoom-in">
+      <h3 class="text-4xl font-bold mb-6">Ready to find your lead?</h3>
+      <p class="text-gray-400 mb-10">Submit your requirements and let the talent come to you.</p>
+      <a href="https://forms.gle/4HvGTsPufyVbUULG9" target="_blank" class="inline-block bg-white text-black px-12 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform active:scale-95 shadow-xl">
+        Post Casting Requirement
+      </a>
     </div>
-
-    <div class="bg-purple-600 p-8 rounded-xl" data-aos="flip-up">
-      <h4 class="text-xl font-bold mb-4">Pro</h4>
-      <p class="text-4xl font-bold mb-4">₹999/mo</p>
-      <p class="mb-6">Unlimited casting posts</p>
-      <button class="bg-black px-6 py-2 rounded-full">Select</button>
-    </div>
-
-    <div class="bg-white/10 p-8 rounded-xl" data-aos="flip-right">
-      <h4 class="text-xl font-bold mb-4">Enterprise</h4>
-      <p class="text-4xl font-bold mb-4">Custom</p>
-      <p class="text-gray-400 mb-6">Large studios & agencies</p>
-      <button class="bg-purple-500 px-6 py-2 rounded-full">Contact</button>
-    </div>
-
   </div>
 </section>
 
-<!-- Hire Section -->
-<section id="hire" class="py-24 bg-black text-center">
-
-  <h3 class="text-4xl font-bold mb-6">Post Your Casting Requirement</h3>
-
-  <a href="https://forms.gle/4HvGTsPufyVbUULG9"
-     target="_blank"
-     class="bg-gradient-to-r from-purple-500 to-pink-500 px-10 py-4 rounded-full hover:scale-105 transition">
-    Open Casting Form
-  </a>
-
-</section>
-
-<!-- Login Modal -->
-<div id="loginModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center">
-
-  <div class="bg-gray-900 p-8 rounded-xl w-96">
-    <h3 class="text-2xl font-bold mb-6">Login</h3>
-
-    <input type="email" placeholder="Email"
-           class="w-full p-3 mb-4 bg-gray-800 rounded">
-
-    <input type="password" placeholder="Password"
-           class="w-full p-3 mb-4 bg-gray-800 rounded">
-
-    <button class="w-full bg-purple-500 py-3 rounded mb-4">
-      Login
-    </button>
-
-    <button onclick="closeLogin()" class="text-gray-400 text-sm">
-      Close
-    </button>
+<div id="loginModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[100] backdrop-blur-sm p-4">
+  <div class="glass p-10 rounded-3xl w-full max-w-md relative" data-aos="zoom-in">
+    <button onclick="closeLogin()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl">&times;</button>
+    <h3 class="text-3xl font-bold mb-8">Welcome Back</h3>
+    <div class="space-y-4">
+      <input type="email" placeholder="Email Address" class="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500 transition">
+      <input type="password" placeholder="Password" class="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500 transition">
+      <button class="w-full bg-gradient-to-r from-purple-600 to-pink-600 py-4 rounded-xl font-bold mt-4 shadow-lg active:scale-95 transition">Sign In</button>
+    </div>
   </div>
 </div>
 
-<!-- Footer -->
-<footer class="bg-black text-gray-500 text-center p-6 border-t border-gray-800">
-  © 2026 Actors Casting Platform
+<footer class="py-12 bg-black text-center border-t border-white/5">
+  <p class="text-gray-600 text-sm">© 2026 ACTORS CASTING PLATFORM. ALL RIGHTS RESERVED.</p>
 </footer>
 
 <script>
-  AOS.init();
+  AOS.init({ duration: 800, once: true });
 
   function openLogin() {
-    document.getElementById('loginModal').classList.remove('hidden');
-    document.getElementById('loginModal').classList.add('flex');
+    const modal = document.getElementById('loginModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeLogin() {
-    document.getElementById('loginModal').classList.add('hidden');
+    const modal = document.getElementById('loginModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
   }
 
-  // Animated Counter
-  const counters = document.querySelectorAll('.counter');
-  counters.forEach(counter => {
-    counter.innerText = '0';
-    const updateCounter = () => {
-      const target = +counter.getAttribute('data-target');
-      const c = +counter.innerText;
-      const increment = target / 200;
-      if (c < target) {
-        counter.innerText = Math.ceil(c + increment);
-        setTimeout(updateCounter, 10);
-      } else {
-        counter.innerText = target;
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const speed = target / 100;
+
+        const updateCount = () => {
+          if (count < target) {
+            count += speed;
+            counter.innerText = Math.ceil(count);
+            setTimeout(updateCount, 15);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+        counterObserver.unobserve(counter);
       }
-    };
-    updateCounter();
-  });
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
+
+  function toggleMobileMenu() {
+    alert("Mobile menu clicked! You can implement a sliding sidebar here.");
+  }
 </script>
 
 </body>
 </html>
-
